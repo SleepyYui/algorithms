@@ -1,2 +1,2 @@
-# algorithms
- useless [optimized] algorithms
+# Algorithms
+ Useless [and optimized] algorithms or something of that kind.
