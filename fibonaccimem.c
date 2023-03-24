@@ -1,3 +1,8 @@
+//
+// Created by SleepyYui on 11.03.2023.
+// Modified last by SleepyYui on 11.03.2023.
+//
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <gmp.h>
@@ -26,16 +31,20 @@ int main(int argc, char *argv[]) {
         exit(EXIT_FAILURE);
     }
     mpz_t *memo[2];
+    printf("allocating %lu bytes\n", sizeof(mpz_t) * 2);
     memo[0] = calloc(1, sizeof(mpz_t));
     memo[1] = calloc(1, sizeof(mpz_t));
+    printf("initializing %lu bytes\n", sizeof(mpz_t) * 2);
     mpz_init(memo[0][0]);
     mpz_init(memo[1][0]);
     fib(n, memo);
     printf("done\nresult:\n");
-    //mpz_out_str(stdout, 10, memo[n % 2][0]);
+    mpz_out_str(stdout, 10, memo[n % 2][0]);
     printf("\n");
+    printf("clearing %lu bytes\n", sizeof(mpz_t) * 2);
     mpz_clear(memo[0][0]);
     mpz_clear(memo[1][0]);
+    printf("freeing %lu bytes\n", sizeof(mpz_t) * 2);
     free(memo[0]);
     free(memo[1]);
     return EXIT_SUCCESS;
