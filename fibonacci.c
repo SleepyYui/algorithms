@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
     }
     fib(n, memo);
     printf("done\nresult:\n");
-    //mpz_out_str(stdout, 10, memo[n]);
+    mpz_out_str(stdout, 10, memo[n]);
     printf("\n");
     for (unsigned long i = 0; i <= n; i++) {
         mpz_clear(memo[i]);
